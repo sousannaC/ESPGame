@@ -8,6 +8,7 @@
 * independently. I have not copied the code from a student or   * any source. I have not given my code to any student.
  * Print your Name here: Sousanna Chugunova
 */
+
 import java.util.Scanner;
 public class ESPGame {
 
