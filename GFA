@@ -1,0 +1,98 @@
+/*
+ * Class: CMSC203 
+ * Instructor: Dr.Grinberg
+ * Description: The program selects a color randomly from a predefined
+ * list of seven colors and asks the user to guess the color. After 11 
+ * rounds of guessing, the program displays the number of times the user 
+ * correctly guessed the selected color.
+ * Due: Before the final exam (GFA)
+ * Platform/compiler: Eclipse
+ * I pledge that I have completed the programming 
+ * assignment independently. I have not copied the code 
+ * from a student or any source. I have not given my code 
+ * to any student.
+   Print your Name here: Sousanna Chugunova
+*/
+
+package ESP;
+import java.util.Scanner;
+
+public class ESPTest {
+    // Define constants for color names
+    private static final String COLOR_RED = "Red";
+    private static final String COLOR_GREEN = "Green";
+    private static final String COLOR_BLUE = "Blue";
+    private static final String COLOR_ORANGE = "Orange";
+    private static final String COLOR_YELLOW = "Yellow";
+    private static final String COLOR_PURPLE = "Purple";
+    private static final String COLOR_PINK = "Pink";
+
+    public static void main(String[] args) {
+    	
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter your MC M#: ");
+        String mcMNumber = scanner.nextLine();
+
+        // Ask for a sentence describing the student and the due date
+        System.out.print("Describe yourself and Due Date (MM/DD/YY): ");
+        String description = scanner.nextLine();
+        // Initialize variables to count correct guesses
+        int correctGuesses = 0;
+
+        // Repeat 11 times
+        for (int i = 1; i <= 11; i++) {
+            // Generate a random number from 0 to 6 to select a color
+            int randomNumber = (int) (Math.random() * 7);
+
+            // Select a color based on the random number
+            String selectedColor = "";
+            switch (randomNumber) {
+                case 0:
+                    selectedColor = COLOR_RED;
+                    break;
+                case 1:
+                    selectedColor = COLOR_GREEN;
+                    break;
+                case 2:
+                    selectedColor = COLOR_BLUE;
+                    break;
+                case 3:
+                    selectedColor = COLOR_ORANGE;
+                    break;
+                case 4:
+                    selectedColor = COLOR_YELLOW;
+                    break;
+                case 5:
+                    selectedColor = COLOR_PURPLE;
+                    break;
+                case 6:
+                    selectedColor = COLOR_PINK;
+                    break;
+            }
+
+            // Ask the user to guess the color
+            System.out.print("Guess the color: ");
+            String userGuess = scanner.nextLine();
+
+            // Check if the user's guess matches the selected color
+            if (userGuess.equalsIgnoreCase(selectedColor)) {
+                System.out.println("Correct! The color was " + selectedColor);
+                correctGuesses++;
+            } else {
+                System.out.println("Incorrect! The color was " + selectedColor);
+            }
+        }
+
+        // Display the number of correct guesses
+        System.out.println("You guessed the correct color " + correctGuesses + " times.");
+        System.out.println("\nStudent Information:");
+        System.out.println("Name: " + name);
+        System.out.println("MC M#: " + mcMNumber);
+        System.out.println("Description and Due Date: " + description);
+
+        scanner.close();
+    }
+    }
+
